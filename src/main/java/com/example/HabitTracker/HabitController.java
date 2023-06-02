@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/habit ")
+@RequestMapping(path = "api/v1/habit")
 public class HabitController {
-
     @GetMapping
-    public List<Habit> getHabit(){
+    public List<Habit> getHabit() {
         return List.of(
                 new Habit(
                         1L,
@@ -19,7 +18,5 @@ public class HabitController {
                         "Leg day"
                 )
         );
-
     }
 }
-
