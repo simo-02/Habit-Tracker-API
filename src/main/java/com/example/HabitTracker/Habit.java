@@ -1,6 +1,20 @@
 package com.example.HabitTracker;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Habit {
+    @Id
+    @SequenceGenerator(
+            name = "habit_sequence",
+            sequenceName = "habit_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "habit_sequence"
+    )
     private Long id;
     private String name;
     private String description;
