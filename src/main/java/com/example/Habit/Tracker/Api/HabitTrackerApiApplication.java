@@ -15,6 +15,6 @@ public class HabitTrackerApiApplication {
 
 	@GetMapping
 	public String hello(){
-		return "Hedldlo Djokovic";
+		return "Hedldlo Djokdovic";
 	}
 }
