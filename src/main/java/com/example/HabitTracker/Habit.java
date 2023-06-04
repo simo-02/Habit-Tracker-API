@@ -1,7 +1,8 @@
 package com.example.HabitTracker;
 
 import javax.persistence.*;
-
+import java.util.ArrayList;
+import java.util.List;
 @Entity
 @Table
 public class Habit {
@@ -18,6 +19,7 @@ public class Habit {
     private Long id;
     private String name;
     private String description;
+    private int tracking;
 
     public Habit() {
     }
@@ -25,6 +27,7 @@ public class Habit {
     public Habit(String name, String description) {
         this.name = name;
         this.description = description;
+        this.tracking = tracking;
     }
 
     public Long getId() {
@@ -51,6 +54,13 @@ public class Habit {
         this.description = description;
     }
 
+    public int getTracking() {
+        return tracking;
+    }
+
+    public void setTracking(int tracking) {
+        this.tracking = tracking;
+    }
     @Override
     public String toString() {
         return "Habit{" +
@@ -65,6 +75,8 @@ public class Habit {
         this.name = name;
         this.description = description;
 
-
     }
+
+
+
 }

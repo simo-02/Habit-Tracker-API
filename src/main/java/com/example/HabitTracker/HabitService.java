@@ -51,4 +51,12 @@ public class HabitService {
         }
     }
 
+    public void trackHabitProgress(Long id, int tracking) {
+        Habit habit = habitRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Habit with id " + id + " does not exist"));
+
+        habit.setTracking(tracking);
+        habitRepository.save(habit);
+    }
+
 }
