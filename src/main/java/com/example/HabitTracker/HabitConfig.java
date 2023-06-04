@@ -14,13 +14,13 @@ public class HabitConfig {
             HabitRepository repository){
         return args -> {
             Habit habit1 = new Habit(
-                    "Workout",
-                    "Leg day"
+                    "Exercise",
+                    "Go for a 30-minute jog in the morning."
             );
 
             Habit habit2 = new Habit(
-                    "Grocery Shopping",
-                    "."
+                    "Reading",
+                    "Read a book for 20 minutes before bedtime."
             );
 
             repository.saveAll(
