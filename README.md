@@ -12,6 +12,8 @@ Before running the application, ensure that you have the following prerequisites
 
 ## Getting Started
 
+Note: The Habit Tracker API is configured to run on your local machine and is intended for development and testing purposes. It is not recommended to deploy this application as is to a production environment without further configuration and security measures.
+
 To get started with the Habit Tracker API, follow these steps:
 
 1. Clone the repository to your local machine:
@@ -70,10 +72,6 @@ For more details on how to interact with the API, refer to the API documentation
 ## Contributing
 
 Contributions to the Habit Tracker API project are welcome. If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as per your needs.
 
 ## Contact
 
