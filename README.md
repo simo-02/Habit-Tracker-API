@@ -12,36 +12,41 @@ Before running the application, ensure that you have the following prerequisites
 
 ## Getting Started
 
-Note: The Habit Tracker API is configured to run on your local machine and is intended for development and testing purposes. It is not recommended to deploy this application as is to a production environment without further configuration and security measures.
+**Note:** The Habit Tracker API is configured to run on your local machine and is intended for development and testing purposes. It is not recommended to deploy this application as is to a production environment without further configuration and security measures.
 
 To get started with the Habit Tracker API, follow these steps:
 
 1. Clone the repository to your local machine:
-   ```shell
+
+   ```
    git clone https://github.com/simo-02/Habit-Tracker-Api.git
    ```
 
 2. Navigate to the project directory:
-   ```shell
+
+   ```
    cd habit-tracker-api
    ```
 
 3. Configure the database connection:
+
    - Open the `src/main/resources/application.properties` file.
    - Modify the database connection properties to match your PostgreSQL database configuration.
    - Save the file.
 
 4. Build the project using Maven:
-   ```shell
+
+   ```
    mvn clean install
    ```
 
 5. Run the application:
-   ```shell
+
+   ```
    mvn spring-boot:run
    ```
 
-6. The Habit Tracker API will now be accessible at `http://localhost:8080/api/v1/habit`.
+   The Habit Tracker API will now be accessible at `http://localhost:8080/api/v1/habit`.
 
 ## API Endpoints
 
@@ -51,6 +56,7 @@ The following endpoints are available in the Habit Tracker API:
 - `POST /api/v1/habit` - Create a new habit.
 - `PUT /api/v1/habit/{id}` - Update a habit's name and description by its ID.
 - `DELETE /api/v1/habit/{id}` - Delete a habit by its ID.
+- `POST /api/v1/habit/{id}/track` - Track the progress of a habit by its ID.
 
 Please refer to the API documentation or the code itself for detailed information on the request and response structures for each endpoint.
 
@@ -58,7 +64,7 @@ Please refer to the API documentation or the code itself for detailed informatio
 
 To create a new habit, you can send a POST request to `/api/v1/habit` with the following JSON payload:
 
-```
+```json
 {
   "name": "Exercise",
   "description": "Go for a 30-minute jog in the morning."
@@ -66,6 +72,8 @@ To create a new habit, you can send a POST request to `/api/v1/habit` with the f
 ```
 
 Similarly, to update a habit's name and description, send a PUT request to `/api/v1/habit/{id}` with the habit ID as a path parameter and the updated name in the request body.
+
+To track the progress of a habit, send a POST request to `/api/v1/habit/{id}/track` with the habit ID as a path parameter and the tracking value in the request body.
 
 For more details on how to interact with the API, refer to the API documentation or test the endpoints using an API testing tool like Postman.
 
