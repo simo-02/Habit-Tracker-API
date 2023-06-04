@@ -1,9 +1,7 @@
 package com.example.HabitTracker;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +20,24 @@ public class HabitController {
     public List<Habit> getHabit() {
         return habitService.getHabit();
     }
+
+    @PostMapping
+    public void registerNewHabit(@RequestBody Habit habit) {
+        habitService.addNewHabit(habit);
+    }
+
+    @DeleteMapping(path = "{habitName}")
+    public void deleteHabit(
+            @PathVariable("habitName") String habitName){
+        habitService.deleteHabit(habitName);
+    }
+
+    @PutMapping(path = "{id}")
+    public void updateHabit(
+            @PathVariable("id") Long id,
+            @RequestParam(required = false) String name) {
+        habitService.updateHabit(id, name);
+    }
+
+
 }
