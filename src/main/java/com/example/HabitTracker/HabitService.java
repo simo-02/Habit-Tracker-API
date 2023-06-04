@@ -30,25 +30,24 @@ public class HabitService {
         habitRepository.save(habit);
     }
 
-    public void deleteHabit(String habitName) {
-        Optional<Habit> habitOptional = habitRepository.findHabitByName(habitName);
-        if (habitOptional.isEmpty()) {
-            throw new IllegalStateException("Habit with name '" + habitName + "' does not exist");
+    public void deleteHabit(Long id) {
+        if (!habitRepository.existsById(id)) {
+            throw new IllegalStateException("Habit with id " + id + " does not exist");
         }
-        habitRepository.delete(habitOptional.get());
+        habitRepository.deleteById(id);
     }
 
 
-    public void updateHabit(Long id, String name) {
+    public void updateHabit(Long id, Habit updatedHabit) {
         Habit habit = habitRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException(
-                        "habit with id " + id + " does not exist"
+                        "Habit with id " + id + " does not exist"
                 ));
 
-        if (name != null && name.length() > 0 && !Objects.equals(habit.getName(), name)) {
-            habit.setName(name);
-            habitRepository.save(habit);
-        }
+        habit.setName(updatedHabit.getName());
+        habit.setDescription(updatedHabit.getDescription());
+
+        habitRepository.save(habit);
     }
 
     public void trackHabitProgress(Long id, int tracking) {

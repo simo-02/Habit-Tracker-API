@@ -28,17 +28,16 @@ public class HabitController {
         habitService.addNewHabit(habit);
     }
 
-    @DeleteMapping(path = "{habitName}")
+    @DeleteMapping(path = "{id}")
     public void deleteHabit(
-            @PathVariable("habitName") String habitName){
-        habitService.deleteHabit(habitName);
+            @PathVariable("id") Long id) {
+        habitService.deleteHabit(id);
     }
-
     @PutMapping(path = "{id}")
     public void updateHabit(
             @PathVariable("id") Long id,
-            @RequestParam(required = false) String name) {
-        habitService.updateHabit(id, name);
+            @RequestBody Habit updatedHabit) {
+        habitService.updateHabit(id, updatedHabit);
     }
 
     @PostMapping(path = "{id}/track")
